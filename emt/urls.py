@@ -1,9 +1,9 @@
 from django.conf.urls import url, include
 from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
-from kennywoodapi.models import *
-from kennywoodapi.views import register_user, login_user
-from kennywoodapi.views import ParkAreas, Attractions, ItineraryView
+from emtapi.models import *
+from emtapi.views import register_user, login_user
+from emtapi.views import ParkAreas, Attractions, ItineraryView
 
 # pylint: disable=invalid-name
 router = routers.DefaultRouter(trailing_slash=False)
