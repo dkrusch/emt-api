@@ -2,6 +2,7 @@
 from django.db import models
 from .customer import Customer
 from .payment import Payment
+from .store import Store
 
 
 class Order(models.Model):

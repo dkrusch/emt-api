@@ -2,8 +2,6 @@
 from django.db import models
 from datetime import datetime
 from .customer import Customer
-from .payment import Payment
-from .store import Store
 
 
 class Store(models.Model):
@@ -14,7 +12,7 @@ class Store(models.Model):
     address_line_two = models.CharField(max_length=50)
     zip_code = models.IntegerField(max_length=5)
     description = models.CharField(max_length=255)
-    created_date = models.DatetimeField(default=datetime.now)
+    created_date = models.DateTimeField(default=datetime.now)
 
     class Meta:
         verbose_name = ("order")

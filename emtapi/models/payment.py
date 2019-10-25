@@ -11,7 +11,7 @@ class Payment(SafeDeleteModel):
     account_number = models.CharField(max_length=25)
     customer = models.ForeignKey(Customer, on_delete=models.DO_NOTHING, )
     expiration_date = models.DateField(default="0000-00-00",)
-    create_date = models.DatetimeField(default=datetime.now)
+    create_date = models.DateTimeField(default=datetime.now)
     zip_code = models.IntegerField(max_length=5)
     security_code = models.IntegerField(max_length=3)
 
