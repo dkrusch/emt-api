@@ -9,3 +9,6 @@ obj
 .vscode
 dist
 KennywoodEnv
+__pycache__/
+*.py[cod]
+*$py.class
