@@ -1,0 +1,18 @@
+[
+    {
+        "model": "bangazonapi.favorite",
+        "pk": 1,
+        "fields": {
+            "customer_id": "1",
+            "seller_id": "2"
+        }
+    },
+    {
+        "model": "bangazonapi.favorite",
+        "pk": 2,
+        "fields": {
+            "customer_id": "2",
+            "seller_id": "1"
+        }
+    }
+]
