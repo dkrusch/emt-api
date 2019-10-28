@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 class Transaction(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.DO_NOTHING, related_name="customertransactions")
+    store = models.ForeignKey(Customer, on_delete=models.DO_NOTHING, related_name="customertransactions")
     order = models.ForeignKey(Order, on_delete=models.DO_NOTHING, related_name="ordertransactions")
     time_complete = models.DateTimeField(default=datetime.now)
 

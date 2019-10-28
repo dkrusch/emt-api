@@ -1,20 +1,38 @@
 [
     {
-        "model": "bangazonapi.order",
+        "model": "emtapi.order",
         "pk": 1,
         "fields": {
-            "customer_id": "2",
-            "payment_type_id": "1",
-            "created_date": "2019-02-13"
+            "store_id": "1",
+            "payment_type": "1",
+            "customer_id": "1",
+            "vend_amount": "10",
+            "created_date": "2019-09-04 06:00:00.000000",
+            "denomination": "37217"
         }
     },
     {
-        "model": "bangazonapi.order",
+        "model": "emtapi.order",
         "pk": 2,
         "fields": {
-            "customer_id": "1",
-            "payment_type_id": "2",
-            "created_date": "2019-03-13"
+            "store_id": "2",
+            "payment_type": "2",
+            "customer_id": "2",
+            "vend_amount": "20",
+            "created_date": "2019-09-04 06:00:00.000000",
+            "denomination": "21840"
+        }
+    },
+    {
+        "model": "emtapi.order",
+        "pk": 3,
+        "fields": {
+            "store_id": "1",
+            "payment_type": "3",
+            "customer_id": "3",
+            "vend_amount": "30",
+            "created_date": "2019-09-04 06:00:00.000000",
+            "denomination": "35729"
         }
     }
 ]

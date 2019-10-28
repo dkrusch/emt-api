@@ -3,7 +3,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
-from bangazonapi.models import Customer
+from emtapi.models import Customer
 from django.contrib.auth.models import User
 from .user import UserSerializer
 
@@ -29,16 +29,16 @@ class CustomerSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class Customers(ViewSet):
-    # """Customers for Bangazon
+    # """Customers for emt
     # Author: Dustin Hobson
-    # Purpose: Allow a user to communicate with the Bangazon database to GET PUT POST and DELETE Customers.
+    # Purpose: Allow a user to communicate with the emt database to GET PUT POST and DELETE Customers.
     # Methods: GET PUT(id) POST
     # """
 
     def create(self, request):
         # """Handle POST operations
         # Author: Dustin Hobson
-        # Purpose: Allow a user to communicate with the Bangazon database to create new customer
+        # Purpose: Allow a user to communicate with the emt database to create new customer
         # Methods:  POST
         # Returns:
         #     Response -- JSON serialized Customer instance
@@ -59,7 +59,7 @@ class Customers(ViewSet):
     def retrieve(self, request, pk=None):
         # """Handle GET requests for single customer
         # Author: Dustin Hobson
-        # Purpose: Allow a user to communicate with the Bangazon database to retrieve  customer
+        # Purpose: Allow a user to communicate with the emt database to retrieve  customer
         # Methods:  GET
         # Returns:
         #     Response -- JSON serialized customer instance
@@ -74,7 +74,7 @@ class Customers(ViewSet):
     def update(self, request, pk=None):
         # """Handle PUT requests for a customer
         # Author: Dustin Hobson
-        # Purpose: Allow a user to communicate with the Bangazon database to update  customer's 'is_active property
+        # Purpose: Allow a user to communicate with the emt database to update  customer's 'is_active property
         # Methods:  PUT
         # Returns:
         #     Response -- Empty body with 204 status code
@@ -95,7 +95,7 @@ class Customers(ViewSet):
         # """Handle GET requests to customers resource
 
         # Author: Dustin Hobson
-        # Purpose: Allow a user to communicate with the Bangazon database to list Customers        Methods:  GET
+        # Purpose: Allow a user to communicate with the emt database to list Customers        Methods:  GET
         # Returns:
         #     Response -- JSON serialized list of park areas
         # """
