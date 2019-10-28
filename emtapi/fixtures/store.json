@@ -1,0 +1,30 @@
+[
+    {
+        "model": "emtapi.store",
+        "pk": 1,
+        "fields": {
+            "merchant_id": "1",
+            "store_name": "Quick Fuel",
+            "vend_amount": "100",
+            "address_line_one": "100 store lane",
+            "address_line_two": "",
+            "zip_code": "11111",
+            "description": "A gastation type store",
+            "created_date": "2019-02-13"
+        }
+    },
+    {
+        "model": "emtapi.store",
+        "pk": 2,
+        "fields": {
+            "merchant_id": "2",
+            "store_name": "Quick Mart",
+            "vend_amount": "200",
+            "address_line_one": "200 store lane",
+            "address_line_two": "",
+            "zip_code": "22222",
+            "description": "A convenience type store",
+            "created_date": "2019-02-13"
+        }
+    }
+]

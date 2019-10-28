@@ -1,35 +1,41 @@
 [
     {
-        "model": "bangazonapi.payment",
+        "model": "emtapi.payment",
         "pk": 1,
         "fields": {
             "merchant_name": "Visa",
-            "account_number": "24ijio68948fj8439",
+            "account_number": "1111 1111 1111 1111",
             "customer_id": "1",
             "expiration_date": "2020-01-01",
-            "create_date": "2019-11-11"
+            "created_date": "2019-11-11",
+            "zip_code": "37217",
+            "security_code": "333"
         }
     },
     {
-        "model": "bangazonapi.payment",
+        "model": "emtapi.payment",
         "pk": 2,
         "fields": {
             "merchant_name": "Mastercard",
-            "account_number": "39j3984fj9sofi9",
+            "account_number": "2222 2222 2222 2222",
             "customer_id": "2",
             "expiration_date": "2020-02-01",
-            "create_date": "2019-12-12"
+            "created_date": "2019-12-12",
+            "zip_code": "21840",
+            "security_code": "222"
         }
     },
     {
-        "model": "bangazonapi.payment",
+        "model": "emtapi.payment",
         "pk": 3,
         "fields": {
             "merchant_name": "Visa",
-            "account_number": "fj0398fjw0g89434",
+            "account_number": "3333 3333 3333 3333",
             "customer_id": "3",
             "expiration_date": "2020-03-01",
-            "create_date": "2019-03-11"
+            "created_date": "2019-03-11",
+            "zip_code": "35729",
+            "security_code": "111"
         }
     }
 ]
