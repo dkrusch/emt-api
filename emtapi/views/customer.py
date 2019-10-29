@@ -5,7 +5,6 @@ from rest_framework import serializers
 from rest_framework import status
 from emtapi.models import Customer
 from django.contrib.auth.models import User
-from .user import UserSerializer
 
 
 
@@ -24,7 +23,7 @@ class CustomerSerializer(serializers.HyperlinkedModelSerializer):
             lookup_field = 'id'
 
         )
-        fields = ('id', 'url', 'user', 'phone_number', 'address', 'avg_rating', 'full_name')
+        fields = ('id', 'url', 'user', 'phone_number', 'address', 'is_merchant', 'full_name')
         depth = 1
 
 
