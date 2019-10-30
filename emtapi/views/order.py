@@ -31,7 +31,7 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
             view_name='order',
             lookup_field='id'
         )
-        fields = ('id', 'url', 'customer', 'store', 'payment_type', 'vend_amount', 'denomination', 'created_date')
+        fields = ('id', 'url', 'customer', 'store', 'payment_type', 'vend_amount', 'denomination', 'created_date', 'time_complete')
         depth = 1
 
 
@@ -44,7 +44,7 @@ class Orders(ViewSet):
         Returns:
             Response -- JSON serialized ParkArea instance
         """
-        new_order = Orders()
+        new_order = Order()
         customer = Customer.objects.get(id=request.data["customer_id"])
         new_order.customer = customer
         store = Store.objects.get(id=request.data["store_id"])
@@ -124,16 +124,10 @@ class Orders(ViewSet):
         """
         orders = Order.objects.all()
 
-        # customer = self.request.query_params.get('customer_id', None)
-        # complete = self.request.query_params.get('complete', None)
-        # payment = self.request.query_params.get('payment_id', None)
-        # if customer is not None:
-        #     if complete == "0":
-        #         orders = orders.filter(customer__id=customer, payment_type__id__isnull=True)
-        #     if complete == "1":
-        #         orders = orders.filter(customer__id=customer, payment_type__id__isnull=False)
+        merchant = self.request.query_params.get('customer_id', None)
 
-        # if payment is not None:
+        # if merchant is not None:
+
         #     orders = orders.filter(payment_type__id=payment)
         # if complete is not None:
         #     print("EEEEEEEEEEEEEEEEEEEEEEEEEEEE")

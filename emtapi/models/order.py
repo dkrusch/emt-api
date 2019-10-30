@@ -12,6 +12,8 @@ class Order(models.Model):
     vend_amount = models.IntegerField(max_length=2)
     denomination = models.IntegerField(max_length=2)
     created_date = models.DateTimeField(default=datetime.now)
+    time_complete = models.DateTimeField(default=None, null=True, blank=True)
+
 
     class Meta:
         verbose_name = ("order")

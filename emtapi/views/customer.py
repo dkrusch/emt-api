@@ -21,7 +21,6 @@ class CustomerSerializer(serializers.HyperlinkedModelSerializer):
         url = serializers.HyperlinkedIdentityField(
             view_name='customer',
             lookup_field = 'id'
-
         )
         fields = ('id', 'url', 'user', 'phone_number', 'address', 'is_merchant', 'full_name')
         depth = 1

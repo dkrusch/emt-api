@@ -11,9 +11,7 @@ router.register(r'customers', Customers, 'customer')
 router.register(r'users', UserViewSet, 'user')
 router.register(r'orders', Orders, 'order')
 router.register(r'payments', Payments, 'payment')
-router.register(r'stores', Store, 'store')
-router.register(r'transactions', Transaction, 'order')
-router.register(r'vendinfo', Vendinfo, 'vendinfo')
+router.register(r'stores', Stores, 'store')
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
