@@ -118,7 +118,7 @@ class Orders(ViewSet):
             orders = orders.filter(store__merchant__id=merchant)
         if complete is not None:
             if complete == "1":
-                orders = orders.filter(payment_type__id__isnull=False)
+                orders = orders.filter(time_complete__isnull=False)
             elif complete == "0":
                 orders = orders.filter(time_complete__isnull=True)
 
