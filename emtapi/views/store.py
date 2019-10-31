@@ -26,11 +26,10 @@ class StoreSerializer(serializers.HyperlinkedModelSerializer):
             view_name='Store',
             lookup_field='id'
         )
-        fields = ('id', 'url', 'merchant', 'store_name', 'address_line_one', 'address_line_two', 'zip_code', 'description', 'created_date')
+        fields = ('id', 'url', 'merchant', 'store_name', 'address_line_one', 'address_line_two', 'zip_code', 'description', 'created_date', 'start_time', 'end_time', 'vend_limit')
         depth = 1
 
-
-class Store(ViewSet):
+class Stores(ViewSet):
 
     def create(self, request):
         """Handle POST operations
@@ -39,7 +38,7 @@ class Store(ViewSet):
             Response -- JSON serialized product category instance
         """
         new_store = Store()
-        merchant = Customer.objects.get(user=request.auth.user)
+        merchant = Customer.objects.get(id=request.data["merchant_id"])
         new_store.merchant = merchant
         new_store.store_name = request.data["store_name"]
         new_store.address_line_one = request.data["address_line_one"]
@@ -47,11 +46,34 @@ class Store(ViewSet):
         new_store.zip_code = request.data["zip_code"]
         new_store.description = request.data["description"]
         new_store.created_date = request.data["created_date"]
+        new_store.start_time = request.data["start_time"]
+        new_store.end_time = request.data["end_time"]
+        new_store.vend_limit = request.data["vend_limit"]
         new_store.save()
 
         serializer = StoreSerializer(new_store, context={'request': request})
 
         return Response(serializer.data)
+
+    def update(self, request, pk=None):
+        """Handle PUT requests for a park area
+
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+        store = Store.objects.get(pk=pk)
+        # store.store_name = request.data["store_name"]
+        # store.address_line_one = request.data["address_line_one"]
+        # store.address_line_two = request.data["address_line_two"]
+        # store.zip_code = request.data["zip_code"]
+        # store.description = request.data["description"]
+        # store.created_date = request.data["created_date"]
+        store.start_time = request.data["start_time"]
+        store.end_time = request.data["end_time"]
+        store.vend_limit = request.data["vend_limit"]
+        store.save()
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
 
     def retrieve(self, request, pk=None):
         """Handle GET requests for single park area
@@ -72,8 +94,19 @@ class Store(ViewSet):
         Returns:
             Response -- JSON serialized list of park Ratings
         """
-        store = Store.objects.all()
+        stores = Store.objects.all()
+
+        merchant = self.request.query_params.get('merchant', None)
+
+        if merchant is not None:
+            stores = stores.filter(merchant__id=merchant)
 
         serializer = StoreSerializer(
-            store, many=True, context={'request': request})
+            stores, many=True, context={'request': request})
         return Response(serializer.data)
+
+
+
+        # serializer = VendinfoSerializer(
+        #     vendinfos, many=True, context={'request': request})
+        # return Response(serializer.data)
