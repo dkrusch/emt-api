@@ -8,7 +8,7 @@
             "customer_id": "1",
             "vend_amount": "10",
             "created_date": "2019-09-04 06:00:00.000000",
-            "denomination": "37217"
+            "denomination": "5"
         }
     },
     {
@@ -20,7 +20,7 @@
             "customer_id": "2",
             "vend_amount": "20",
             "created_date": "2019-09-04 06:00:00.000000",
-            "denomination": "21840"
+            "denomination": "20"
         }
     },
     {
@@ -32,7 +32,7 @@
             "customer_id": "3",
             "vend_amount": "30",
             "created_date": "2019-09-04 06:00:00.000000",
-            "denomination": "35729"
+            "denomination": "10"
         }
     }
 ]
