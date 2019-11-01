@@ -61,17 +61,17 @@ class Stores(ViewSet):
         Returns:
             Response -- Empty body with 204 status code
         """
-        store = Store.objects.get(pk=pk)
-        # store.store_name = request.data["store_name"]
-        # store.address_line_one = request.data["address_line_one"]
-        # store.address_line_two = request.data["address_line_two"]
-        # store.zip_code = request.data["zip_code"]
-        # store.description = request.data["description"]
-        # store.created_date = request.data["created_date"]
-        store.start_time = request.data["start_time"]
-        store.end_time = request.data["end_time"]
-        store.vend_limit = request.data["vend_limit"]
-        store.save()
+        update_store = Store.objects.get(pk=pk)
+        # update_store.store_name = request.data["store_name"]
+        # update_store.address_line_one = request.data["address_line_one"]
+        # update_store.address_line_two = request.data["address_line_two"]
+        # update_store.zip_code = request.data["zip_code"]
+        # update_store.description = request.data["description"]
+        # update_store.created_date = request.data["created_date"]
+        update_store.start_time = request.data["start_time"]
+        update_store.end_time = request.data["end_time"]
+        update_store.vend_limit = request.data["vend_limit"]
+        update_store.save()
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
 
