@@ -25,7 +25,7 @@ SECRET_KEY = ')!ktne!^&jd0sshf7h2*1zm*_b_m8m9+699)^7yi9_6^0!ktnm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '192.168.20.138']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '192.168.20.138', '192.168.1.4']
 
 
 # Application definition
@@ -71,7 +71,8 @@ CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
     'http://127.0.0.1:3000',
     'http://127.0.0.1:3002',
-    'http://192.168.20.138:3000'
+    'http://192.168.20.138:3000',
+    'http://192.168.1.4:3000'
 )
 
 ROOT_URLCONF = 'emt.urls'
