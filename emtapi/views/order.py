@@ -49,11 +49,11 @@ class Orders(ViewSet):
         new_order.customer = customer
         store = Store.objects.get(id=request.data["store_id"])
         new_order.store = store
-        new_order.payment_type = request.data["payment_type"]
+        new_order.payment_type = Payment.objects.get(id=request.data["payment_type"])
         new_order.vend_amount = request.data["vend_amount"]
         new_order.denomination = request.data["denomination"]
         new_order.created_date = request.data["created_date"]
-        new_order.created_date = request.data["time_complete"]
+        # new_order.time_complete = request.data["time_complete"]
         new_order.save()
 
         serializer = OrderSerializer(new_order, context={'request': request})
