@@ -26,7 +26,7 @@ class PaymentSerializer(serializers.HyperlinkedModelSerializer):
             view_name='payment',
             lookup_field='id'
         )
-        fields = ('id', 'url', 'merchant_name', 'account_number', 'customer' 'expiration_date', 'created_date', 'zip_code', 'security_code')
+        fields = ('id', 'url', 'merchant_name', 'account_number', 'customer', 'expiration_date', 'created_date', 'zip_code', 'security_code')
 
 class Payments(ViewSet):
 
@@ -44,7 +44,7 @@ class Payments(ViewSet):
         new_payment.created_date = request.data["created_date"]
         new_payment.zip_code = request.data["zip_code"]
         new_payment.security_code = request.data["security_code"]
-        customer = Customer.objects.get(user=request.auth.user)
+        customer = Customer.objects.get(id=request.data["customer_id"])
         new_payment.customer = customer
         new_payment.save()
 
@@ -93,9 +93,9 @@ class Payments(ViewSet):
         payment_types = Payment.objects.all()
 
         # Support filtering attractions by area id
-        # payment_type = self.request.query_params.get('customer', None)
-        # if payment_type is not None:
-        #     payment_types = payment_types.filter(customer__id=payment_type)
+        payment_type = self.request.query_params.get('customer', None)
+        if payment_type is not None:
+            payment_types = payment_types.filter(customer__id=payment_type)
 
         serializer = PaymentSerializer(
             payment_types, many=True, context={'request': request})
