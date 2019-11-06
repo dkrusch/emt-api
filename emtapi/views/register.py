@@ -27,8 +27,9 @@ def login_user(request):
 
         # If authentication was successful, respond with their token
         if authenticated_user is not None:
+            customer = Customer.objects.get(user=authenticated_user)
             token = Token.objects.get(user=authenticated_user)
-            data = json.dumps({"valid": True, "token": token.key, "id": authenticated_user.id})
+            data = json.dumps({"valid": True, "token": token.key, "id": authenticated_user.id, "is_merchant": customer.is_merchant})
             return HttpResponse(data, content_type='application/json')
 
         else:
@@ -72,5 +73,5 @@ def register_user(request):
     token = Token.objects.create(user=new_user)
 
     # Return the token to the client
-    data = json.dumps({"token": token.key, "id": new_user.id})
+    data = json.dumps({"token": token.key, "id": new_user.id, "is_merchant": customer.is_merchant})
     return HttpResponse(data, content_type='application/json')
