@@ -52,6 +52,22 @@ class Payments(ViewSet):
 
         return Response(serializer.data)
 
+    def update(self, request, pk=None):
+        """Handle PUT requests for a park area
+
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+        update_payment = Payment.objects.get(pk=pk)
+        update_payment.merchant_name = request.data["merchant_name"]
+        update_payment.account_number = request.data["account_number"]
+        update_payment.expiration_date = request.data["expiration_date"]
+        update_payment.zip_code = request.data["zip_code"]
+        update_payment.security_code = request.data["security_code"]
+        update_payment.save()
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+
     def retrieve(self, request, pk=None):
         """Handle GET requests for single payment type
 
